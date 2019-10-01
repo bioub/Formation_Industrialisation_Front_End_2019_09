@@ -1,3 +1,9 @@
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
+import { bind } from 'lodash-es';
+import config from './config.json5';
+import './clock.css';
+
 export class Clock {
   /**
    * @param {HTMLElement} host
@@ -6,10 +12,10 @@ export class Clock {
     this.host = host;
   }
   _render() {
-    this.host.innerText = new Date().toLocaleTimeString();
+    this.host.innerText = format(new Date(), config.format, { locale: fr });
   }
   start() {
     this._render();
-    setInterval(this._render.bind(this), 1000);
+    setInterval(bind(this._render, this), 1000);
   }
 }
