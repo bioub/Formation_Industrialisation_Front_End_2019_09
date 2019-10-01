@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { bind } from 'lodash-es';
 import config from './config.json5';
-import './clock.css';
+import './clock.scss';
 
 export class Clock {
   /**
