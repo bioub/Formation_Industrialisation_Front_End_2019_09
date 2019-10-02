@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { Clock } from './clock.js';
+import { Clock } from './clock';
 
 /** @type {HTMLDivElement} */
 const divElt = document.querySelector('.horloge');

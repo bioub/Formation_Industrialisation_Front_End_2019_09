@@ -1,5 +1,6 @@
 @import './variables';
 
 body {
+  user-select: none;
   background-color: lighten($primary, 30%);
 }
