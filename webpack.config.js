@@ -41,17 +41,20 @@ module.exports = (_, { mode }) => {
   const config = {
     devtool: (mode === 'production') ? false : 'source-map',
     entry: {
-      index: './src/index.js',
+      index: './src/index.ts',
     },
     output: {
       filename: (mode === 'production') ? '[name].[chunkhash].js' : '[name].js',
       // path: path.resolve(__dirname, 'build'),
     },
     plugins,
+    resolve: {
+      extensions: ['.ts', '.js', '.json'],
+    },
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.ts$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -64,6 +67,7 @@ module.exports = (_, { mode }) => {
                     corejs: 3,
                   },
                 ],
+                '@babel/preset-typescript',
               ],
               plugins: [],
             },

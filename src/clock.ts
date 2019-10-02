@@ -5,12 +5,11 @@ import config from './config.json5';
 import css from './clock.scss';
 
 export class Clock {
-  /**
-   * @param {HTMLElement} host
-   */
-  constructor(host) {
+  private host: HTMLElement;
+
+  constructor(host: HTMLElement) {
     this.host = host;
-    this.host.classList.add(css.horloge);
+    host.classList.add(css.horloge);
   }
   _render() {
     this.host.innerText = format(new Date(), config.format, { locale: fr });

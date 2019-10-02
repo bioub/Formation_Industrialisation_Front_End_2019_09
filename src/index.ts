@@ -2,8 +2,7 @@ import './index.scss';
 
 import { Clock } from './clock';
 
-/** @type {HTMLDivElement} */
-const divElt = document.querySelector('.horloge');
+const divElt = document.querySelector<HTMLDivElement>('.horloge');
 const clock = new Clock(divElt);
 clock.start();
 
